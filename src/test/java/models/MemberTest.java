@@ -17,4 +17,11 @@ public class MemberTest {
         Member testMember = makeNewMember();
         assertTrue(testMember instanceof Member);
     }
+
+    @Test
+    public void newMemberInstantiatesWithName_String() throws Exception {
+        Member testMember = makeNewMember();
+        assertEquals("Testgu", testMember.getName());
+    }
+
 }
