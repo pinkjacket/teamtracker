@@ -1,6 +1,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Team {
     private String name;
@@ -25,6 +26,14 @@ public class Team {
 
     public String getDescription() {
         return description;
+    }
+
+    public static ArrayList<Team> getAll() {
+        return instances;
+    }
+
+    public static void empty() {
+        instances.clear();
     }
 
 

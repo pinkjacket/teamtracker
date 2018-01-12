@@ -44,4 +44,11 @@ public class MemberTest {
         Member testMemberTwo = new Member ("Guy 2");
         assertEquals(Member.find(testMemberTwo.getId()), testMemberTwo);
     }
+
+    @Test
+    public void emptyEmptiesMembersFromList() throws Exception {
+        Member testMember = makeNewMember();
+        Member.empty();
+        assertEquals(0, Member.getAll().size());
+    }
 }

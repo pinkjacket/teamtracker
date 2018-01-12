@@ -13,11 +13,12 @@ public class TeamTest {
     }
 
     @Before
-    public void setUp() throws Exception {
+    public void clearAll() throws Exception {
+        Team.empty();
     }
 
     @Test
-    public void newTeamInstantiatesCorrectly_true() throws Exception  {
+    public void newTeamInstantiatesCorrectly() throws Exception  {
         Team testTeam = makeNewTeam();
         assertTrue(testTeam instanceof Team);
     }
@@ -28,5 +29,20 @@ public class TeamTest {
         assertEquals("Test Team", testTeam.getName());
         assertEquals("For this test", testTeam.getDescription());
         assertEquals(1, testTeam.getId());
+    }
+
+    @Test
+    public void getAllReturnsAllTeams() throws Exception {
+        Team testTeam = makeNewTeam();
+        Team testTeam2 = new Team("Team 2", "The second team");
+        assertEquals(true, Team.getAll().contains(testTeam));
+        assertEquals(true, Team.getAll().contains(testTeam2));
+    }
+
+    @Test
+    public void emptyEmptiesTeamsFromList() throws Exception {
+        Team testTeam = makeNewTeam();
+        Team.empty();
+        assertEquals(0, Team.getAll().size());
     }
 }
