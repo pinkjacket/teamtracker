@@ -2,16 +2,19 @@ package models;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class MemberTest {
 
-    @Before
-    public void setUp() throws Exception {
+    public Member makeNewMember() {
+        return new Member("Testguy");
     }
 
-    @After
-    public void tearDown() throws Exception {
+    @Test
+    public void newMemberInstantiatesCorrectly_true() throws Exception {
+        Member testMember = makeNewMember();
+        assertTrue(testMember instanceof Member);
     }
 }
