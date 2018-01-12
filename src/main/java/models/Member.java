@@ -23,7 +23,7 @@ public class Member {
     }
 
     public static Member find(int id) {
-        return instances.get(id);
+        return instances.get(id-1);
     }
 
     public static List<Member> getAll() {
