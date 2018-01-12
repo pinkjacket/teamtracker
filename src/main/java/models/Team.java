@@ -50,6 +50,10 @@ public class Team {
         members.add(member);
     }
 
+    public void updateName(String name) {
+        this.name = name;
+    }
+
 }
 
 

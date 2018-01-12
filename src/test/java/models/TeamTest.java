@@ -66,4 +66,11 @@ public class TeamTest {
         testTeam.addMember(testMember);
         assertTrue(testTeam.getMembers().contains(testMember));
     }
+
+    @Test
+    public void updateNameProperlyUpdatesName() throws Exception {
+        Team testTeam = makeNewTeam();
+        testTeam.updateName("Guy Incognito");
+        assertEquals("Guy Incognito", testTeam.getName());
+    }
 }
