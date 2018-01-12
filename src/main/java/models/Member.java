@@ -22,6 +22,10 @@ public class Member {
         return id;
     }
 
+    public static Member find(int id) {
+        return instances.get(id);
+    }
+
     public static List<Member> getAll() {
         return instances;
     }
