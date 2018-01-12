@@ -36,6 +36,9 @@ public class Team {
         instances.clear();
     }
 
+    public static Team find(int id) {
+        return instances.get(id -1);
+    }
 
 }
 

@@ -18,7 +18,7 @@ public class MemberTest {
     }
 
     @Test
-    public void newMemberInstantiatesCorrectly_true() throws Exception {
+    public void newMemberInstantiatesCorrectly() throws Exception {
         Member testMember = makeNewMember();
         assertTrue(testMember instanceof Member);
     }
@@ -31,7 +31,7 @@ public class MemberTest {
     }
 
     @Test
-    public void getAllReturnsAllMembers_true() throws Exception {
+    public void getAllReturnsAllMembers() throws Exception {
         Member testMember = makeNewMember();
         Member testMemberTwo = new Member ("Guy 2");
         assertEquals(true, Member.getAll().contains(testMember));

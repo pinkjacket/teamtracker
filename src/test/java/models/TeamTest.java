@@ -45,4 +45,11 @@ public class TeamTest {
         Team.empty();
         assertEquals(0, Team.getAll().size());
     }
+
+    @Test
+    public void findReturnsTeamWithRightId() throws Exception {
+        Team testTeam = makeNewTeam();
+        Team testTeam2 = new Team("Team 2", "The second team");
+        assertEquals(Team.find(testTeam2.getId()), testTeam2);
+    }
 }
