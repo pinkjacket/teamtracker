@@ -24,4 +24,11 @@ public class MemberTest {
         assertEquals("Testguy", testMember.getName());
     }
 
+    @Test
+    public void getAllReturnsAllMembers_true() throws Exception {
+        Member testMember = makeNewMember();
+        Member testMemberTwo = new Member ("Guy 2");
+        assertEquals(true, Member.getAll().contains(testMember));
+        assertEquals(true, Member.getAll().contains(testMemberTwo));
+    }
 }
