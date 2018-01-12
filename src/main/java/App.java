@@ -41,5 +41,23 @@ public class App {
             model.put("teams", teams);
             return new ModelAndView(model, "show-all.hbs");
         }, new HandlebarsTemplateEngine());
+
+        //get: show update contact form
+        get("/teams/:id/update", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfTeamToRename = Integer.parseInt(request.params("id"));
+            Team editTeam = Team.find(idOfTeamToRename);
+            model.put("editTeam", editTeam);
+            return new ModelAndView(model, "editform.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/teams/:id/update", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String newName = request.queryParams("name");
+            int idOfTeamToRename = Integer.parseInt(request.params("id"));
+            Team editTeam = Team.find(idOfTeamToRename);
+            editTeam.updateName(newName);
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }

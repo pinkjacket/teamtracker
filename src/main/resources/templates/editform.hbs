@@ -1,0 +1,10 @@
+{{#partial "content"}}
+        <h1>Edit team name?</h1>
+        <form action="update" method="post">
+            <label for="name">Edit team name</label>
+            <input id="name" name="name" type="text" value="{{updateName.name}}">
+        </form>
+{{/partial}}
+
+{{> layout.hbs}}
+
