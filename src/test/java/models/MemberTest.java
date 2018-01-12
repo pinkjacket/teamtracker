@@ -8,6 +8,11 @@ import static org.junit.Assert.*;
 
 public class MemberTest {
 
+    @Before
+    public void clearAll() {
+        Member.empty();
+    }
+
     public Member makeNewMember() {
         return new Member("Testguy");
     }
@@ -19,9 +24,10 @@ public class MemberTest {
     }
 
     @Test
-    public void newMemberInstantiatesWithName_String() throws Exception {
+    public void newMemberInstantiatesWithAttributes() throws Exception {
         Member testMember = makeNewMember();
         assertEquals("Testguy", testMember.getName());
+        assertEquals(1, testMember.getId());
     }
 
     @Test

@@ -18,8 +18,16 @@ public class Member {
         return name;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public static List<Member> getAll() {
         return instances;
+    }
+
+    public static void empty() {
+        instances.clear();
     }
 
 }
