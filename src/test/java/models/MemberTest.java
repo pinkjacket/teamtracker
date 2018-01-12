@@ -21,7 +21,7 @@ public class MemberTest {
     @Test
     public void newMemberInstantiatesWithName_String() throws Exception {
         Member testMember = makeNewMember();
-        assertEquals("Testgu", testMember.getName());
+        assertEquals("Testguy", testMember.getName());
     }
 
 }
