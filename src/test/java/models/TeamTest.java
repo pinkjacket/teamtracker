@@ -52,4 +52,18 @@ public class TeamTest {
         Team testTeam2 = new Team("Team 2", "The second team");
         assertEquals(Team.find(testTeam2.getId()), testTeam2);
     }
+
+    @Test
+    public void getMembersCreatesEmptyList() throws Exception {
+        Team testTeam = makeNewTeam();
+        assertEquals(0, testTeam.getMembers().size());
+    }
+
+    @Test
+    public void addMemberAddsMembersToList() {
+        Team testTeam = makeNewTeam();
+        Member testMember = new Member("Testguy");
+        testTeam.addMember(testMember);
+        assertTrue(testTeam.getMembers().contains(testMember));
+    }
 }
