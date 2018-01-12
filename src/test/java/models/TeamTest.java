@@ -16,13 +16,17 @@ public class TeamTest {
     public void setUp() throws Exception {
     }
 
-    @After
-    public void tearDown() throws Exception {
-    }
-
     @Test
     public void newTeamInstantiatesCorrectly_true() throws Exception  {
         Team testTeam = makeNewTeam();
         assertTrue(testTeam instanceof Team);
+    }
+
+    @Test
+    public void newTeamInstantiatesWithAttributes() throws Exception {
+        Team testTeam = makeNewTeam();
+        assertEquals("Test Team", testTeam.getName());
+        assertEquals("For this test", testTeam.getDescription());
+        assertEquals(1, testTeam.getId());
     }
 }
