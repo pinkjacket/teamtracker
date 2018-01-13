@@ -29,7 +29,8 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             String name = request.queryParams("name");
             String description = request.queryParams("description");
-            Team newTeam = new Team(name, description);
+            String members = request.queryParams("members");
+            Team newTeam = new Team(name, description, members);
             model.put("team", newTeam);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());

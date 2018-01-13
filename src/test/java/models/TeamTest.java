@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class TeamTest {
 
     public Team makeNewTeam() {
-        return new Team("Test Team", "For this test");
+        return new Team("Test Team", "For this test", "Jean, Isaac");
     }
 
     @Before
@@ -28,13 +28,14 @@ public class TeamTest {
         Team testTeam = makeNewTeam();
         assertEquals("Test Team", testTeam.getName());
         assertEquals("For this test", testTeam.getDescription());
+        assertEquals("Jean, Isaac", "Jean, Isaac");
         assertEquals(1, testTeam.getId());
     }
 
     @Test
     public void getAllReturnsAllTeams() throws Exception {
         Team testTeam = makeNewTeam();
-        Team testTeam2 = new Team("Team 2", "The second team");
+        Team testTeam2 = new Team("Team 2", "The second team", "guy 1, guy 2");
         assertEquals(true, Team.getAll().contains(testTeam));
         assertEquals(true, Team.getAll().contains(testTeam2));
     }
@@ -49,23 +50,16 @@ public class TeamTest {
     @Test
     public void findReturnsTeamWithRightId() throws Exception {
         Team testTeam = makeNewTeam();
-        Team testTeam2 = new Team("Team 2", "The second team");
+        Team testTeam2 = new Team("Team 2", "The second team", "guy 1, guy 2");
         assertEquals(Team.find(testTeam2.getId()), testTeam2);
     }
 
     @Test
-    public void getMembersCreatesEmptyList() throws Exception {
+    public void getMembersReturnsMembers() throws Exception {
         Team testTeam = makeNewTeam();
-        assertEquals(0, testTeam.getMembers().size());
+        assertEquals(2, testTeam.getMembers().size());
     }
 
-    @Test
-    public void addMemberAddsMembersToList() {
-        Team testTeam = makeNewTeam();
-        Member testMember = new Member("Testguy");
-        testTeam.addMember(testMember);
-        assertTrue(testTeam.getMembers().contains(testMember));
-    }
 
     @Test
     public void updateNameProperlyUpdatesName() throws Exception {
